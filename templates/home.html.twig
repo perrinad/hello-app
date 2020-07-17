@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
+{% extends 'base.html.twig' %}
+{% block title %}Page d'accueil | {{ parent() }}{% endblock title %}
 
-        	<h1>Hello from France!</h1>
-        	<p>It's currently {{"now" | date("H:i", 'Europe/Paris')}} in France</p>
+{% block body %}
+	<div class="flex-center full-height">
+		<div class="content">
+			<img src="{{asset('img/france-flag.png')}}" alt"Flag">
+			<h1 class="title">Hello from France!</h1>
+			        	<p>It's currently {{"now" | date("H:i", 'Europe/Paris')}} in France</p>
 
-        	<hr>
+			        	<hr>
 
-        	<p>&copy; Copyright 2019 - {{"now" | date('Y')}}</p>
-
-
-
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+			        	<p>&copy; Copyright 2019 - {{"now" | date('Y')}}</p>
+		</div>
+	</div>	
+{% endblock body %}
